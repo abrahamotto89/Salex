@@ -1,0 +1,121 @@
+﻿<Window x:Class="Salex.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salex"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:live="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid MouseDown="Grid_MouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,1.333" Background="LightGoldenrodYellow">
+            <TextBlock Text="Salex Kereskedelmi Rendszer"  HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Click="Button_Click_1" Width="50" Height="40">
+                    <material:PackIcon Kind="WindowMinimize"  ></material:PackIcon>
+                </Button>
+                <Button Click="Button_Click_2" Width="50" Height="40">
+                    <material:PackIcon Kind="WindowMaximize"  ></material:PackIcon>
+                </Button>
+
+
+                <Button Click="Button_Click" Width="50" Height="40">
+                    <material:PackIcon Kind="Power"  ></material:PackIcon>
+                </Button>
+
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Background="Bisque" Margin="0,10.333,0,-10" >
+            <StackPanel>
+                <Menu Background="Azure">
+
+                    <MenuItem Header="Termékek">
+                        <MenuItem Header="Felvétel" Click="MenuItem_Click"/>
+                        <MenuItem Header="Lista" Click="MenuItem_Click_1" />
+                       
+
+
+
+
+
+                    </MenuItem>
+                    <MenuItem Header="Vásárok">
+                        <MenuItem Header="Szervezés"/>
+                        <MenuItem Header="Települések"/>
+                        <MenuItem Header="Nyomtatás" />
+
+
+
+
+
+                    </MenuItem>
+                    <MenuItem Header="Statisztikák">
+                        <MenuItem Header="Árukészlet" Click="MenuItem_Click_2"/>
+                        <MenuItem Header="Bevétel" Click="MenuItem_Click_4"/>
+                        <MenuItem Header="Költségek" />
+
+
+
+
+
+                    </MenuItem>
+                    <MenuItem Header="Pénztár">
+                        <MenuItem Header="Árusítás" Click="MenuItem_Click_3"/>
+                        <MenuItem Header="Számla kiállítás"/>
+
+
+
+
+
+
+                    </MenuItem>
+
+                </Menu>
+
+                <WrapPanel>
+                    <TextBlock Text="Költség tényezők %-os eloszlása" FontSize="23" Margin="0,0,20,0" ></TextBlock>
+                    <TextBlock Text="Elmult 5 nap bevételeinek alakulása%-ban" FontSize="23" Width="453" ></TextBlock>
+                </WrapPanel>
+                <WrapPanel>
+                    <live:PieChart x:Name="piechart" Height="326" Width="326"></live:PieChart>
+                    <Grid x:Name="testGrid" Width="464" Height="318" >
+
+                    </Grid>
+                </WrapPanel>
+                <WrapPanel Margin="3,0,0,10">
+                    <Button Width="193" Height="201" Click="Button_Click_3">
+                        <StackPanel>
+                            <TextBlock Text="Pénztár" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" ></TextBlock>
+                            <material:PackIcon  Kind="Money" Width="150" Height="103"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Width="200" Height="200">
+                        <StackPanel>
+                            <TextBlock Text="Vásár" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" ></TextBlock>
+                            <material:PackIcon  Kind="People" Width="150" Height="103"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Width="200" Height="200">
+                        <StackPanel>
+                            <TextBlock Text="Kapcsolat" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" ></TextBlock>
+                            <material:PackIcon  Kind="TransitConnection" Width="150" Height="87"/>
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

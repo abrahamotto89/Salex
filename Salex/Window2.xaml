@@ -1,0 +1,60 @@
+﻿<Window x:Class="Salex.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salex"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Window2" Height="250" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,1.667" Background="LightGoldenrodYellow">
+            <TextBlock Text="Nagykereskedés hozzáadás"  HorizontalAlignment="Left" FontSize="15" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold" Margin="6,0,0,0"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                
+
+
+                <Button Click="Button_Click" Width="50" Height="Auto" Margin="0,0,0,0.333">
+                    <material:PackIcon Kind="Power"  ></material:PackIcon>
+                </Button>
+
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <WrapPanel>
+                    <Label Content="Nagyker Neve:" Width="86"></Label>
+                    <TextBox Width="158" x:Name="nagykernev"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="NagyKer Címe:"></Label>
+                    <TextBox x:Name="ncim" Width="158"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Nagyker Tel:" Width="83"></Label>
+                    <TextBox x:Name="ntel" Width="162"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Nagyker Email" Width="85"></Label>
+                    <TextBox x:Name="nemail" Width="158"></TextBox>
+                </WrapPanel>
+                
+                <WrapPanel>
+                    <Button x:Name="Hozzáad" Content="Hozzáad" Click="Hozzáad_Click">
+
+                    </Button>
+                </WrapPanel>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

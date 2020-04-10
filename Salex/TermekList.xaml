@@ -1,0 +1,100 @@
+﻿<Window x:Class="Salex.TermekList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salex"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="TermekList" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,1.667" Background="LightGoldenrodYellow">
+            <TextBlock Text="Termékek Felvétele"  HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Click="Button_Click_1" Width="50" Height="40" VerticalAlignment="Bottom">
+                    <material:PackIcon Kind="WindowMinimize"  ></material:PackIcon>
+                </Button>
+
+
+                <Button Click="Button_Click" Width="50" Height="40"  VerticalAlignment="Bottom">
+                    <material:PackIcon Kind="Power"  ></material:PackIcon>
+                </Button>
+
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,0,0,250">
+            <StackPanel Margin="0,0,0,-249.667" >
+                <WrapPanel>
+                    <Label Content="Nagyker Szerint"></Label>
+                    
+                    <ComboBox x:Name="nagykerCombo" Width="89" SelectionChanged="nagykerCombo_SelectionChanged">
+
+                        <ComboBoxItem Content="">
+                            
+                        </ComboBoxItem>
+
+                    </ComboBox>
+                </WrapPanel>
+                
+
+
+                <ScrollViewer CanContentScroll="true" Height="342" >
+                    <DataGrid x:Name="productList" Height="325" Width="790" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" x:Name="id" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Termék Neve:" x:Name="pnev" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Beszerzési Ára:" x:Name="bp" ></DataGridTextColumn>
+
+                            <DataGridTextColumn Header="Eladási Ára:" x:Name="sp" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Aktuális Készlet" x:Name="w" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="NagykerId" x:Name="cId" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Min.Készlet" x:Name="min" ></DataGridTextColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </ScrollViewer>
+                <WrapPanel VerticalAlignment="Bottom" Height="40">
+                    <Label Content="Termékek száma:"/>
+                    <Label x:Name="termekSzam"/>
+                    <Button Click="Button_Click_3">
+                        <StackPanel>
+                            <TextBlock Text="Termék Hozzáadása"/>
+
+                        </StackPanel>
+                    </Button>
+
+                    <Button  Margin="30,0,0,0" Click="Button_Click_2">
+                        <StackPanel>
+                            <TextBlock Text="Rendelés Leadása"/>
+
+                        </StackPanel>
+                    </Button>
+                    <Button  Margin="30,0,0,0" Click="Button_Click_5">
+                        <StackPanel>
+                            <TextBlock Text="Pdf Generálás"/>
+
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="80,0,0,0" 
+                            Click="Button_Click_4">
+                        <StackPanel>
+                            <TextBlock Text="Készlet"/>
+
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
