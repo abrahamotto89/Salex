@@ -52,7 +52,7 @@
 
                     </MenuItem>
                     <MenuItem Header="Vásárok">
-                        <MenuItem Header="Szervezés"/>
+                        <MenuItem Header="Szervezés" Click="MenuItem_Click_6"/>
                         <MenuItem Header="Települések" Click="MenuItem_Click_5"/>
                         <MenuItem Header="Nyomtatás" />
 

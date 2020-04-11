@@ -147,5 +147,11 @@ namespace Salex
             Telepulesek t1 = new Telepulesek();
             t1.Show();
         }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            Szervezes sz1 = new Szervezes();
+            sz1.Show();
+        }
     }
 }

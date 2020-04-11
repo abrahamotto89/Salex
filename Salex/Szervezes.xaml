@@ -6,27 +6,95 @@
         xmlns:local="clr-namespace:Salex"
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Szervezes" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="8*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="0,0,0,4" Background="LightGoldenrodYellow">
-            <TextBlock Text="Árusítás"  HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold"/>
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button  Width="50" Height="40">
-                    <material:PackIcon Kind="WindowMinimize"  ></material:PackIcon>
-                </Button>
+        Title="Szervezes" Height="700" Width="1024" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="148*"/>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="155*"/>
+                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="122*"/>
+            </Grid.ColumnDefinitions>
 
 
 
-                <Button  Width="50" Height="40" Margin="0,0,0,4.333" VerticalAlignment="Bottom">
-                    <material:PackIcon Kind="Power"  ></material:PackIcon>
-                </Button>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="53*"/>
+                <RowDefinition Height="131*"/>
+                <RowDefinition Height="136*"/>
+                <RowDefinition Height="145*"/>
+                <RowDefinition Height="117*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="LightGoldenrodYellow" Margin="0,0,-3.333,0" Grid.ColumnSpan="7"  >
+                <TextBlock Text="Szervezés"  HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold"/>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button  Width="50" Height="Auto" Click="Button_Click" Margin="0,11,0,11.667">
+                        <material:PackIcon Kind="WindowMinimize"  ></material:PackIcon>
+                    </Button>
 
 
-            </StackPanel>
+
+                    <Button  Width="50" Height="Auto"   Click="Button_Click_1" Margin="0,11,0,11.667">
+                        <material:PackIcon Kind="Power"  ></material:PackIcon>
+                    </Button>
+
+
+                </StackPanel>
+            </Grid>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock VerticalAlignment="Top" Text="2020-04-14"></TextBlock>
+                    <TextBlock VerticalAlignment="Top" Text="Hétfő"></TextBlock> 
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label Content="Kisfalud"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label Content="Gyóró"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock  Text="13400" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock  Text="1000" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock VerticalAlignment="Top" Text="2020-04-14"></TextBlock>
+                    <TextBlock VerticalAlignment="Top"/>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label Content="Kisfalud"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label Content="Gyóró"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock  Text="13400" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock  Text="1000" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
         </Grid>
-    </Grid>
+
+
+
+
+
+    </ScrollViewer>
 </Window>
