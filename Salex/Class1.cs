@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 namespace Salex
 {
+  
     public struct BevetelDatum
     {
         public int bevetel { get; set; }
@@ -443,6 +444,61 @@ namespace Salex
 
             return (vissza);
 
+        }
+
+        public void insertTelepules(Falvak f)
+        {
+            
+            MySqlConnection connection = new MySqlConnection(connect);
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "insert into telepulesek values('" +f.id + "','" + f.faluNeve  + "','" +f.szorolapSzama + "','"+f.berletiDij+"','"+f.terjesztesTipus+"','"+f.terjesztesDij+"','"+f.kapcsolat+"','"+f.tavolsag+"','"+f.benzinKoltseg+"','"+f.pontosHely+"');";
+            connection.Open();
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+
+        public List<Falvak> getFalvak()
+        {
+            List<Falvak> vissza = new List<Falvak>();
+           
+
+            MySqlConnection connection = new MySqlConnection(connect);
+
+            connection.Open();
+
+            string lekerdez = "select *from telepulesek;";
+
+
+            MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+
+                vissza.Add(new Falvak()
+                {
+                    id = Convert.ToInt32(reader["id"].ToString()),
+                    faluNeve = reader["telepulesNev"].ToString(),
+                    szorolapSzama = Convert.ToInt32(reader["szorolapSzama"].ToString()),
+                    berletiDij = Convert.ToInt32(reader["berletiDij"].ToString()),
+                    terjesztesTipus = reader["terjesztesTipusa"].ToString(),
+                    terjesztesDij=Convert.ToInt32(reader["terjesztesiDij"].ToString()),
+                    kapcsolat=reader["kapcsolat"].ToString(),
+                    tavolsag=Convert.ToInt32(reader["tavolsag"].ToString()),
+                    benzinKoltseg=Convert.ToInt32(reader["benzinKoltseg"].ToString()),
+                    pontosHely=reader["pontoshely"].ToString(),
+
+                }
+
+                ) ; 
+
+
+            }
+
+
+
+            return (vissza);
         }
 
 

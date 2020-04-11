@@ -141,5 +141,11 @@ namespace Salex
             Arusitas a1 = new Arusitas();
             a1.Show();
         }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            Telepulesek t1 = new Telepulesek();
+            t1.Show();
+        }
     }
 }
