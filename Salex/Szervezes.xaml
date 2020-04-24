@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Salex"
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Szervezes" Height="700" Width="1024" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Szervezes" Height="670" Width="1300" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" WindowStyle="None">
 
-    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-        <Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" >
+        <Grid MouseDown="Grid_MouseDown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="147*"/>
                 <ColumnDefinition Width="148*"/>
@@ -30,6 +30,13 @@
                 <RowDefinition Height="117*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="LightGoldenrodYellow" Margin="0,0,-3.333,0" Grid.ColumnSpan="7"  >
+                <Button HorizontalAlignment="Left" Click="Button_Click_3">
+                    <material:PackIcon Kind="Refresh"></material:PackIcon>
+                </Button>
+                <Button HorizontalAlignment="Left" Margin="60,0,0,0" Click="Button_Click_9">
+                    <material:PackIcon Kind="Graph"></material:PackIcon>
+                </Button>
+
                 <TextBlock Text="Szervezés"  HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontFamily="Georgia Pro Black" FontWeight="Bold"/>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button  Width="50" Height="Auto" Click="Button_Click" Margin="0,11,0,11.667">
@@ -45,51 +52,649 @@
 
                 </StackPanel>
             </Grid>
-            <Button  HorizontalAlignment="Left" Grid.Row="1" Width="140" Height="Auto">
-                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
-                    <TextBlock VerticalAlignment="Top" Text="2020-04-14"></TextBlock>
-                    <TextBlock VerticalAlignment="Top" Text="Hétfő"></TextBlock> 
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Width="183" Height="Auto" Click="Button_Click_2" Margin="0,0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="120"  >
+                    <TextBlock x:Name="datum1" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0101" VerticalAlignment="Top" Text=""></TextBlock>
                     <WrapPanel >
-                        <Label Content="9-11"></Label>
-                        <Label Content="Kisfalud"></Label>
+                        <Label Content="9-11"  Width="34"></Label>
+                        <Label x:Name="falu0101" FontSize="13" Content=""></Label>
                     </WrapPanel>
                     <WrapPanel>
                         <Label Content="13-15"></Label>
-                        <Label Content="Gyóró"></Label>
+                        <Label x:Name="falu0102"  FontSize="10" Content=""></Label>
                     </WrapPanel>
                     <WrapPanel>
                         <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
-                        <TextBlock  Text="13400" Width="45"/>
+                        <TextBlock x:Name="koltseg0101"  Text="" Width="45"/>
                     </WrapPanel>
                     <WrapPanel>
                         <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
-                        <TextBlock  Text="1000" Width="45"/>
+                        <TextBlock x:Name="szorolap0101"  Text="" Width="45"/>
+
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="183" Height="Auto" Click="Button_Click_4" Margin="0.667,0.333,0,0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum2" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0102" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu10102" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu20102"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0102"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0102"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Width="179" Height="144" Margin="1,0,0,0.333" VerticalAlignment="Bottom" Click="Button_Click_5">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum3" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0103" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu10103" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu20103"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0103"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0103"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Width="186" Height="Auto" Click="Button_Click_6" Grid.ColumnSpan="2" Margin="0.333,0.333,0,0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum4" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0104" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0104" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0204"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0104"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0104"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" Width="193" Height="Auto" Click="Button_Click_7" Margin="0,0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum5" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0105" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0105" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0205"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" ></material:PackIcon>
+                        <TextBlock x:Name="koltseg0105"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" ></material:PackIcon>
+                        <TextBlock x:Name="szorolap0105"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5" Width="172" Height="Auto" Margin="0,0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum6" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0106" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0106" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0206"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0106"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0106"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="6" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum7" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0107" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0107" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0207"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0107"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0107"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Width="182" Height="Auto" Margin="0,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum8" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0108" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0108" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0208"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0108"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0108"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="183" Height="Auto" Margin="0.667,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum9" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0109" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0109" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0209"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0109"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0109"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" Width="180" Height="Auto" Margin="0,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum10" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0110" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0110" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0210"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0110"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0110"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Width="185" Height="Auto" Margin="1.333,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum11" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0111" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0111" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0211"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0111"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0111"  Text="" Width="45"/>
                     </WrapPanel>
                 </StackPanel>
             </Button>
 
-            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="140" Height="Auto">
+            <Button  HorizontalAlignment="Left" Grid.Row="2" Grid.Column="4" Width="140" Height="Auto">
                 <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
-                    <TextBlock VerticalAlignment="Top" Text="2020-04-14"></TextBlock>
-                    <TextBlock VerticalAlignment="Top"/>
+                    <TextBlock x:Name="datum12" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0112" VerticalAlignment="Top" Text=""></TextBlock>
                     <WrapPanel >
                         <Label Content="9-11"></Label>
-                        <Label Content="Kisfalud"></Label>
+                        <Label x:Name="falu0112" Content=""></Label>
                     </WrapPanel>
                     <WrapPanel>
                         <Label Content="13-15"></Label>
-                        <Label Content="Gyóró"></Label>
+                        <Label x:Name="falu0212"  Content=""></Label>
                     </WrapPanel>
                     <WrapPanel>
                         <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
-                        <TextBlock  Text="13400" Width="45"/>
+                        <TextBlock x:Name="koltseg0112"  Text="" Width="45"/>
                     </WrapPanel>
                     <WrapPanel>
                         <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
-                        <TextBlock  Text="1000" Width="45"/>
+                        <TextBlock x:Name="szorolap0112"  Text="" Width="45"/>
                     </WrapPanel>
                 </StackPanel>
             </Button>
+
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="4" Width="192" Height="Auto" Margin="1,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum13" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0113" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0113" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0213"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0113"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0113"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+
+            <Button  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="5" Width="172" Height="Auto" Margin="0,144.333,0,0" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum14" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0114" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0114" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0214"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0114"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0114"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="2" Grid.Column="6" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum15" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0115" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0115" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0215"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0115"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0115"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="0" Width="182" Height="Auto" Margin="0,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum16" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0116" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0116" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0216"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0116"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0116"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Width="184" Height="Auto" Grid.ColumnSpan="2" Margin="187,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum17" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0117" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0117" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0217"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0117"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0117"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" Width="181" Height="Auto" Margin="0,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum18" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0118" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0118" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0218"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0118"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0118"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="3" Width="186" Height="Auto" Margin="0.333,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum19" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0119" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0119" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0219"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0119"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0119"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="4" Width="193" Height="Auto" Margin="0,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum20" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0120" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0120" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0220"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0120"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0120"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="5" Width="172" Height="Auto" Margin="0,0,0,137.667" Grid.RowSpan="2">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum21" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0121" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0121" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0221"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0121"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0121"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="6" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum22" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0122" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0122" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0222"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0122"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0122"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="0" Width="182" Height="Auto" Margin="0,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum23" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0123" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0123" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0223"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0123"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0123"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" Width="183" Height="Auto" Margin="0.667,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum24" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0124" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0124" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0224"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0124"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0124"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="2" Width="181" Height="Auto" Margin="0,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum25" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0125" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0125" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0225"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0125"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0125"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="3" Width="186" Height="Auto"  Margin="0.333,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum26" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0126" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0126" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0226"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0126"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0126"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="4" Width="193" Height="Auto" Margin="0,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum27" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0127" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0127" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0227"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0127"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0127"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="5" Width="172" Height="Auto" Margin="0,0.333,0,-0.333">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum28" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0128" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0128" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0228"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0128"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0128"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Grid.Row="4" Grid.Column="6" Width="140" Height="Auto">
+                <StackPanel HorizontalAlignment="Left" Height="130" Width="130" >
+                    <TextBlock x:Name="datum29" VerticalAlignment="Top" Text=""></TextBlock>
+                    <TextBlock x:Name="nap0129" VerticalAlignment="Top" Text=""></TextBlock>
+                    <WrapPanel >
+                        <Label Content="9-11"></Label>
+                        <Label x:Name="falu0129" Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="13-15"></Label>
+                        <Label x:Name="falu0229"  Content=""></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Money" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="koltseg0129"  Text="" Width="45"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <material:PackIcon Kind="Account" VerticalAlignment="Center" Margin="0,0,10,0"></material:PackIcon>
+                        <TextBlock x:Name="szorolap0129"  Text="" Width="45"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Button>
+
         </Grid>
 
 

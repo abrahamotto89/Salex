@@ -6,6 +6,20 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 namespace Salex
 {
+
+    
+
+    public struct Szervez
+    {
+        public int id { get; set; }
+        public string  delelott { get; set; }
+        public string delutam { get; set; }
+
+        public int koltseg { get; set; }
+
+        public int szorolapSzam { get; set; }
+        public DateTime datum { get; set; }
+    }
   
     public struct BevetelDatum
     {
@@ -20,12 +34,12 @@ namespace Salex
     public class Kapcsolatok
     {
         public static String connect = "DATABASE=salex;DATASOURCE=localhost;USER=root;PASSWORD=kiraly89;SslMode=none";
-       
+
         public Product p1;
         public string vissza;
         public Kapcsolatok()
         {
-            
+
 
 
         }
@@ -226,7 +240,7 @@ namespace Salex
             List<double> vissza = new List<double>();
             MySqlConnection connection = new MySqlConnection(connect);
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "select ertek from bevetel where datum='"+datum+"' order by ertek Desc limit 5;";
+            cmd.CommandText = "select ertek from bevetel where datum='" + datum + "' order by ertek Desc limit 5;";
 
             connection.Open();
 
@@ -241,14 +255,14 @@ namespace Salex
         }
 
 
-        public void modositKeszlet(int x,int y)
+        public void modositKeszlet(int x, int y)
         {
             int vissza = 0;
             int modosit = 0;
             MySqlConnection connection = new MySqlConnection(connect);
             MySqlCommand cmd = connection.CreateCommand();
             MySqlCommand parancs = connection.CreateCommand();
-            cmd.CommandText = "select keszletdb from termekek where id='"+x+"' ";
+            cmd.CommandText = "select keszletdb from termekek where id='" + x + "' ";
             connection.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -262,7 +276,7 @@ namespace Salex
 
             connection.Open();
             modosit = vissza - y;
-            parancs.CommandText = "update termekek set keszletdb='"+modosit+"' where id='"+x+"';";
+            parancs.CommandText = "update termekek set keszletdb='" + modosit + "' where id='" + x + "';";
             parancs.ExecuteNonQuery();
 
 
@@ -316,7 +330,7 @@ namespace Salex
                 {
                     nagykerId = Convert.ToInt32(reader["nagykerId"].ToString()),
                     nagykerNev = reader["nagykerNev"].ToString(),
-                    
+
                 });
             }
 
@@ -331,7 +345,7 @@ namespace Salex
             MySqlConnection connection = new MySqlConnection(connect);
 
             connection.Open();
-            string lekerdez = "select *from termekek where nagykerId=(Select nagykerId from nagyker where nagykerNev='"+x+"');";
+            string lekerdez = "select *from termekek where nagykerId=(Select nagykerId from nagyker where nagykerNev='" + x + "');";
             MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -360,54 +374,54 @@ namespace Salex
             MySqlConnection connection = new MySqlConnection(connect);
 
             connection.Open();
-            string lekerdez = "select SUM(ertek)  from bevetel where datum='"+d+"';";
+            string lekerdez = "select SUM(ertek)  from bevetel where datum='" + d + "';";
             MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             bool columnnull = false;
             while (reader.Read())
             {
                 vissza = Convert.ToInt32(reader["SUM(ertek)"].ToString());
-               
+
 
             }
             return (vissza);
         }
 
-        public int getBevetelHeti(string j,string a)
+        public int getBevetelHeti(string j, string a)
         {
             int vissza = 0;
             MySqlConnection connection = new MySqlConnection(connect);
 
             connection.Open();
-            string lekerdez = "select SUM(ertek)  from bevetel where datum between '"+a+"' AND '"+j+"';";
+            string lekerdez = "select SUM(ertek)  from bevetel where datum between '" + a + "' AND '" + j + "';";
             MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
 
-               
-                    vissza = Convert.ToInt32(reader["SUM(ertek)"].ToString());
-                
+
+                vissza = Convert.ToInt32(reader["SUM(ertek)"].ToString());
+
             }
             return (vissza);
         }
 
         public string getLastDate()
         {
-            
+
             MySqlConnection connection = new MySqlConnection(connect);
 
             connection.Open();
 
             string lekerdez = "SELECT * FROM bevetel ORDER by datum desc LIMIT 1;";
 
-                 MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
+            MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
 
                 vissza = reader["datum"].ToString();
-              
+
 
             }
 
@@ -448,10 +462,10 @@ namespace Salex
 
         public void insertTelepules(Falvak f)
         {
-            
+
             MySqlConnection connection = new MySqlConnection(connect);
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "insert into telepulesek values('" +f.id + "','" + f.faluNeve  + "','" +f.szorolapSzama + "','"+f.berletiDij+"','"+f.terjesztesTipus+"','"+f.terjesztesDij+"','"+f.kapcsolat+"','"+f.tavolsag+"','"+f.benzinKoltseg+"','"+f.pontosHely+"');";
+            cmd.CommandText = "insert into telepulesek values('" + f.id + "','" + f.faluNeve + "','" + f.szorolapSzama + "','" + f.berletiDij + "','" + f.terjesztesTipus + "','" + f.terjesztesDij + "','" + f.kapcsolat + "','" + f.tavolsag + "','" + f.benzinKoltseg + "','" + f.pontosHely + "');";
             connection.Open();
             cmd.ExecuteNonQuery();
 
@@ -462,7 +476,7 @@ namespace Salex
         public List<Falvak> getFalvak()
         {
             List<Falvak> vissza = new List<Falvak>();
-           
+
 
             MySqlConnection connection = new MySqlConnection(connect);
 
@@ -483,15 +497,15 @@ namespace Salex
                     szorolapSzama = Convert.ToInt32(reader["szorolapSzama"].ToString()),
                     berletiDij = Convert.ToInt32(reader["berletiDij"].ToString()),
                     terjesztesTipus = reader["terjesztesTipusa"].ToString(),
-                    terjesztesDij=Convert.ToInt32(reader["terjesztesiDij"].ToString()),
-                    kapcsolat=reader["kapcsolat"].ToString(),
-                    tavolsag=Convert.ToInt32(reader["tavolsag"].ToString()),
-                    benzinKoltseg=Convert.ToInt32(reader["benzinKoltseg"].ToString()),
-                    pontosHely=reader["pontoshely"].ToString(),
+                    terjesztesDij = Convert.ToInt32(reader["terjesztesiDij"].ToString()),
+                    kapcsolat = reader["kapcsolat"].ToString(),
+                    tavolsag = Convert.ToInt32(reader["tavolsag"].ToString()),
+                    benzinKoltseg = Convert.ToInt32(reader["benzinKoltseg"].ToString()),
+                    pontosHely = reader["pontoshely"].ToString(),
 
                 }
 
-                ) ; 
+                );
 
 
             }
@@ -499,8 +513,181 @@ namespace Salex
 
 
             return (vissza);
+
+        }
+
+        public void insertSzervezes(Szervez sz1)
+        {
+            int y = 0;
+            MySqlConnection connection = new MySqlConnection(connect);
+
+            connection.Open();
+
+            string atalakit = sz1.datum.ToString();
+
+            char[] x = atalakit.ToCharArray();
+
+            DateTime today = new DateTime(sz1.datum.Year, sz1.datum.Month, sz1.datum.Day);
+
+            string napi = "";
+
+            if (today.Month > 9 && today.Day < 10)
+            {
+                napi = today.Year + ".0" + today.Month + "." + today.Day + ". " + "0:00:00";
+
+            }
+
+            if (today.Month < 10 && today.Day > 9)
+            {
+                napi = today.Year + ".0" + today.Month + "." + today.Day + ". " + "0:00:00";
+            }
+
+            if (today.Month > 9 && today.Day > 9)
+            {
+                napi = today.Year + "." + today.Month + "." + today.Day + ". " + "0:00:00";
+            }
+
+            if (today.Month < 10 && today.Day < 10)
+            {
+                napi = today.Year + ".0" + today.Month + ".0" + today.Day + ". " + "0:00:00";
+            }
+
+            Console.WriteLine(napi.Length);
+
+
+            char[] ar = napi.ToCharArray();
+           
+           
+
+
+            string lekerdez = "insert into szervezes values('"+sz1.id+"','"+sz1.delelott+"','"+sz1.delutam+"','"+sz1.koltseg+"','"+sz1.szorolapSzam+"','"+napi.Trim()+"');";
+
+            MySqlCommand cmd = connection.CreateCommand();
+
+            cmd.CommandText = lekerdez;
+
+            cmd.ExecuteNonQuery();
+
+
+            connection.Close();
+
         }
 
 
+
+        public void updateSzervezes(DateTime d, string a, string b)
+        {
+
+            MySqlConnection connection = new MySqlConnection(connect);
+
+           
+
+            MySqlCommand cmd = connection.CreateCommand();
+
+            string lekerdez = "update szervezes set delelott='" + a + "',delutan='" + b + "' where datum='" + d + "';";
+            connection.Open();
+
+            cmd.CommandText = lekerdez;
+
+            cmd.ExecuteNonQuery();
+
+
+            connection.Close();
+        
+        }
+
+        public void deleteSzervezes(DateTime d)
+        {
+            MySqlConnection connection = new MySqlConnection(connect);
+
+
+
+            MySqlCommand cmd = connection.CreateCommand();
+
+            Console.WriteLine(d);
+
+            string datum = convertDateTime(d);
+
+           
+            string lekerdez = "delete from szervezes where datum='"+datum+"';";
+            connection.Open();
+
+            cmd.CommandText = lekerdez;
+
+            cmd.ExecuteNonQuery();
+
+
+            connection.Close();
+
+        }
+
+
+
+
+        public List<Szervez> getSzervezes()
+        {
+
+            List<Szervez> vissza = new List<Szervez>();
+            MySqlConnection connection = new MySqlConnection(connect);
+            string lekerdez = "select * from szervezes;";
+            MySqlCommand cmd = new MySqlCommand(lekerdez, connection);
+         
+            connection.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                vissza.Add(new Szervez {
+                id=Convert.ToInt32(reader["id"].ToString()),
+                delelott=reader["delelott"].ToString(),
+                delutam=reader["delutan"].ToString(),
+                koltseg=Convert.ToInt32(reader["koltseg"].ToString()),
+                szorolapSzam=Convert.ToInt32(reader["szorolapSzam"].ToString()),
+                datum=DateTime.Parse(reader["datum"].ToString())
+                
+                    });
+            }
+
+
+            return (vissza);
+        }
+
+
+        public string convertDateTime(DateTime d)
+        {
+            
+            
+
+           
+
+            DateTime today = new DateTime(d.Year,d.Month, d.Day);
+
+            string napi = "";
+
+            if (today.Month > 9 && today.Day < 10)
+            {
+                napi = today.Year + ".0" + today.Month + "." + today.Day + ". " + "0:00:00";
+
+            }
+
+            if (today.Month < 10 && today.Day > 9)
+            {
+                napi = today.Year + ".0" + today.Month + "." + today.Day + ". " + "0:00:00";
+            }
+
+            if (today.Month > 9 && today.Day > 9)
+            {
+                napi = today.Year + "." + today.Month + "." + today.Day + ". " + "0:00:00";
+            }
+
+            if (today.Month < 10 && today.Day < 10)
+            {
+                napi = today.Year + ".0" + today.Month + ".0" + today.Day + ". " + "0:00:00";
+            }
+
+
+
+
+            return (napi);
+        }
     }
 }

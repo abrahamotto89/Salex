@@ -46,7 +46,6 @@ C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Modosit.g.cs
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Modosit.baml
 C:\Users\Ottó\source\repos\Salex\Salex\bin\Debug\itextsharp.dll
 C:\Users\Ottó\source\repos\Salex\Salex\bin\Debug\itextsharp.xml
-C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Salex.csprojAssemblyReference.cache
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Szervezes.g.cs
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Telepulesek.g.cs
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl1.g.cs
@@ -59,3 +58,9 @@ C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl2.baml
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl3.baml
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl4.g.cs
 C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl4.baml
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Window6.g.cs
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Window6.baml
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl5.g.cs
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\UserControl5.baml
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Window7.g.cs
+C:\Users\Ottó\source\repos\Salex\Salex\obj\Debug\Window7.baml
